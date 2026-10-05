@@ -57,7 +57,7 @@ export const skillGroups = [
 // Projets d'exemple : remplace-les par tes vrais projets
 export const projects = [
   {
-    title: 'OptiManager',
+    title: 'Opticia',
     type: 'Gestion opticien',
     desc: 'Application de gestion pour opticien : clients, ordonnances, stock de montures et verres, ventes et facturation.',
     tags: ['Laravel', 'React', 'MySQL', 'Tailwind'],

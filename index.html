@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Houssam Termoussi — Software Developer</title>
+    <meta
+      name="description"
+      content="Portfolio de Houssam Termoussi, software developer : PHP, Laravel, Python, Go, Vue.js, React, Next.js, Flutter."
+    />
+    <meta name="theme-color" content="#531069" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23531069'/%3E%3Cpath d='M3 3h2v4h2V3h2v10H7V9H5v4H3zM10 3h4v2h-1v8h-2V5h-1z' fill='white'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="is-loading">
+    <div id="loader" aria-hidden="true">
+      <div class="loader__box">
+        <pre class="loader__lines"></pre>
+        <div class="loader__bar"></div>
+        <div class="loader__pct"><span>LOADING HOUSSAM.OS</span><span data-pct>0%</span></div>
+      </div>
+    </div>
+
+    <div class="crt" aria-hidden="true"></div>
+    <div class="cursor" aria-hidden="true"></div>
+
+    <header class="nav" id="nav">
+      <div class="container nav__inner">
+        <a href="#home" class="logo" aria-label="Accueil">
+          <span class="logo__mark">HT</span>
+          <span class="logo__text">HOUSSAM.DEV</span>
+        </a>
+        <nav aria-label="Navigation principale">
+          <ul class="nav__links" id="nav-links">
+            <li><a href="#about" data-link>À propos</a></li>
+            <li><a href="#stack" data-link>Stack</a></li>
+            <li><a href="#projects" data-link>Projets</a></li>
+            <li><a href="#contact" data-link>Contact</a></li>
+          </ul>
+        </nav>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="container hero__content">
+          <p class="hero__tag"><span class="blink">■</span> DISPONIBLE POUR DE NOUVEAUX PROJETS</p>
+          <h1 class="hero__title">
+            <span class="hero__line" data-split>HOUSSAM</span>
+            <span class="hero__line hero__line--outline" data-split>TERMOUSSI</span>
+          </h1>
+          <p class="hero__role">
+            <span class="hero__prompt">&gt;</span> <span id="typed">software developer</span><span class="caret">_</span>
+          </p>
+          <p class="hero__desc">
+            Je conçois et développe des applications web &amp; mobiles robustes, du back-end jusqu’au dernier pixel.
+          </p>
+          <div class="hero__cta">
+            <a href="#projects" class="btn btn--primary">Voir mes projets</a>
+            <a href="#contact" class="btn">Me contacter</a>
+          </div>
+        </div>
+        <div class="hero__hud">
+          <a href="#about" class="hero__scroll"><span class="hero__scroll-box"><i></i></span>SCROLL</a>
+          <span class="hero__player">PLAYER 1 — <span class="blink">READY</span></span>
+        </div>
+      </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track" id="marquee"></div>
+      </div>
+
+      <section id="about" class="section">
+        <div class="container">
+          <h2 class="section__title"><span class="section__num">01</span>À propos</h2>
+          <div class="about">
+            <div class="win" data-reveal="pop">
+              <div class="win__bar">
+                <span>about_me.txt</span>
+                <div class="win__btns"><i></i><i></i><i></i></div>
+              </div>
+              <div class="win__body about__text">
+                <p>
+                  Salut ! Moi c’est <strong>Houssam Termoussi</strong>, <mark>software developer</mark> passionné par
+                  la construction de produits numériques qui marchent vraiment.
+                </p>
+                <p>
+                  Côté back-end je travaille avec <strong>PHP / Laravel</strong>, <strong>Python</strong> et
+                  <strong>Go</strong> ; côté front avec <strong>Vue.js</strong>, <strong>React</strong>,
+                  <strong>Next.js</strong> et <strong>Tailwind</strong>. Je développe aussi des applications mobiles
+                  avec <strong>Flutter</strong>.
+                </p>
+                <p>
+                  Je vis dans le terminal sous <strong>Linux</strong>, je versionne tout avec
+                  <strong>Git</strong>, et je choisis la bonne base de données selon le besoin :
+                  <strong>MySQL</strong>, <strong>MongoDB</strong> ou <strong>Supabase</strong>.
+                </p>
+              </div>
+            </div>
+
+            <div class="about__side">
+              <div class="stats">
+                <div class="stat" data-reveal>
+                  <span class="stat__num" data-count="15" data-plus>0</span>
+                  <span class="stat__label">technologies</span>
+                </div>
+                <div class="stat" data-reveal>
+                  <span class="stat__num" data-count="3">0</span>
+                  <span class="stat__label">plateformes : web, mobile, API</span>
+                </div>
+              </div>
+              <div class="win win--term" data-reveal="pop">
+                <div class="win__bar">
+                  <span>terminal</span>
+                  <div class="win__btns"><i></i><i></i><i></i></div>
+                </div>
+                <div class="win__body">
+                  <p><span class="term__ps">houssam@dev:~$</span> whoami</p>
+                  <p class="term__out">houssam termoussi</p>
+                  <p><span class="term__ps">houssam@dev:~$</span> cat role.txt</p>
+                  <p class="term__out">software developer — full-stack &amp; mobile</p>
+                  <p><span class="term__ps">houssam@dev:~$</span> uptime</p>
+                  <p class="term__out">toujours en train d’apprendre</p>
+                  <p><span class="term__ps">houssam@dev:~$</span> <span class="caret">█</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="stack" class="section section--tint">
+        <div class="container">
+          <h2 class="section__title"><span class="section__num">02</span>Stack</h2>
+          <div class="stack">
+            <div class="win stack__sphere" data-reveal="pop">
+              <div class="win__bar">
+                <span>skills.3d</span>
+                <div class="win__btns"><i></i><i></i><i></i></div>
+              </div>
+              <div class="sphere">
+                <canvas id="skills-canvas"></canvas>
+                <span class="sphere__hint">↻ GLISSE POUR TOURNER</span>
+              </div>
+            </div>
+            <div class="stack__groups" id="stack-groups"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="container">
+          <h2 class="section__title"><span class="section__num">03</span>Projets</h2>
+          <div class="projects" id="projects-grid"></div>
+        </div>
+      </section>
+
+      <section id="contact" class="section section--tint">
+        <div class="container contact">
+          <h2 class="section__title"><span class="section__num">04</span>Contact</h2>
+          <div class="contact__grid">
+            <p class="contact__big" data-reveal>
+              UN PROJET ?<br />
+              <span>PARLONS-EN.</span>
+            </p>
+            <div class="win win--term" data-reveal="pop">
+              <div class="win__bar">
+                <span>contact.sh</span>
+                <div class="win__btns"><i></i><i></i><i></i></div>
+              </div>
+              <div class="win__body">
+                <p><span class="term__ps">houssam@dev:~$</span> ./contact --list</p>
+                <ul class="contact__links" id="contact-links"></ul>
+                <p><span class="term__ps">houssam@dev:~$</span> <span class="caret">█</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span>© <span id="year"></span> HOUSSAM TERMOUSSI</span>
+        <span class="blink">INSERT COIN TO CONTINUE</span>
+        <a href="#home">▲ HAUT</a>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

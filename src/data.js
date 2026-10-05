@@ -86,5 +86,5 @@ export const projects = [
 export const contacts = [
   { label: 'email', value: 'houssamtermoussi@gmail.com', href: 'mailto:houssamtermoussi@gmail.com' },
   { label: 'github', value: 'github.com/houssamtermoussi', href: 'https://github.com/houssamtermoussi' },
-  { label: 'linkedin', value: 'linkedin.com/in/houssamtermoussi', href: 'https://www.linkedin.com/in/houssamtermoussi' },
+  { label: 'linkedin', value: 'Houssam Termoussi', href: 'https://www.linkedin.com/in/houssam-termoussi-6b10163bb/' },
 ];

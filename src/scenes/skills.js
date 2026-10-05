@@ -166,7 +166,7 @@ export async function createSkillsSphere(canvas, skills) {
       const scale = (0.75 + depth * 0.35) * (1 + data.pop * 0.25);
       sprite.scale.set(data.base.x * scale, data.base.y * scale, 1);
     }
-    canvas.style.cursor = hit && !dragging ? 'pointer' : '';
+    canvas.style.cursor = hit && !dragging ? 'var(--cursor-pointer)' : '';
 
     renderer.render(scene, camera);
   }

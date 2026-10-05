@@ -286,28 +286,6 @@ function setupNav() {
   });
 }
 
-function setupCursor() {
-  if (!finePointer) return;
-  const cursor = document.querySelector('.cursor');
-  const pos = { x: -100, y: -100, tx: -100, ty: -100 };
-
-  window.addEventListener('pointermove', (e) => {
-    pos.tx = e.clientX;
-    pos.ty = e.clientY;
-    cursor.classList.add('is-visible');
-  });
-  document.addEventListener('pointerleave', () => cursor.classList.remove('is-visible'));
-  document.addEventListener('pointerover', (e) => {
-    cursor.classList.toggle('is-hover', Boolean(e.target.closest('a, button, .chip, #skills-canvas')));
-  });
-
-  gsap.ticker.add(() => {
-    pos.x += (pos.tx - pos.x) * 0.22;
-    pos.y += (pos.ty - pos.y) * 0.22;
-    cursor.style.transform = `translate3d(${pos.x}px, ${pos.y}px, 0)`;
-  });
-}
-
 function setupTilt() {
   if (!finePointer || reduceMotion) return;
   document.querySelectorAll('[data-tilt]').forEach((card) => {
@@ -332,7 +310,6 @@ const hero = createHeroScene(document.getElementById('hero-canvas'), { reduceMot
 createSkillsSphere(document.getElementById('skills-canvas'), allSkills);
 
 setupNav();
-setupCursor();
 setupTilt();
 setupScrollEffects(hero);
 setupTyping();

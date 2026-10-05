@@ -10,6 +10,9 @@
   --font-term: 'VT323', monospace;
 
   --nav-h: 76px;
+
+  --cursor-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M4 2v18l5-5 3.5 7 3-1.5-3.5-7H19z' fill='%23531069' stroke='white' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 4 2, auto;
+  --cursor-pointer: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M4 2v18l5-5 3.5 7 3-1.5-3.5-7H19z' fill='%23b98ccc' stroke='%23531069' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 4 2, pointer;
 }
 
 *,
@@ -100,37 +103,15 @@ img {
   background: radial-gradient(ellipse at center, transparent 62%, rgba(83, 16, 105, 0.14) 100%);
 }
 
-/* ---------- Cursor follower ---------- */
-.cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 26px;
-  height: 26px;
-  margin: -13px 0 0 -13px;
-  border: 3px solid var(--purple);
-  pointer-events: none;
-  z-index: 300;
-  opacity: 0;
-  transition:
-    width 0.2s,
-    height 0.2s,
-    margin 0.2s,
-    background 0.2s;
+/* ---------- Cursor ---------- */
+html,
+body {
+  cursor: var(--cursor-default);
 }
-.cursor.is-visible {
-  opacity: 1;
-}
-.cursor.is-hover {
-  width: 48px;
-  height: 48px;
-  margin: -24px 0 0 -24px;
-  background: rgba(83, 16, 105, 0.12);
-}
-@media (hover: none), (pointer: coarse) {
-  .cursor {
-    display: none;
-  }
+a,
+button,
+.chip {
+  cursor: var(--cursor-pointer);
 }
 
 /* ---------- Loader ---------- */
@@ -272,7 +253,7 @@ img {
   border: 3px solid var(--purple);
   background: var(--white);
   box-shadow: 3px 3px 0 var(--purple);
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   position: relative;
   z-index: 2;
 }

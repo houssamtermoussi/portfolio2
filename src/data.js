@@ -85,6 +85,4 @@ export const projects = [
 // Remplace par tes vrais liens
 export const contacts = [
   { label: 'email', value: 'houssamtermoussi@gmail.com', href: 'mailto:houssamtermoussi@gmail.com' },
-  { label: 'github', value: 'github.com/houssamtermoussi', href: 'https://github.com/houssamtermoussi' },
-  { label: 'linkedin', value: 'Houssam Termoussi', href: 'https://www.linkedin.com/in/houssam-termoussi-6b10163bb/' },
-];
+  { label: 'github', value: 'github.com/houssamtermoussi', href: 'https://github.com/houssamtermoussi' },];

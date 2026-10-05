@@ -19,6 +19,22 @@
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=VT323&display=swap"
       rel="stylesheet"
     />
+    <style>
+      body.is-loading {
+        overflow: hidden;
+        background: #531069;
+      }
+      #loader {
+        position: fixed;
+        inset: 0;
+        z-index: 250;
+        display: grid;
+        place-items: center;
+        background: #531069;
+        color: #fff;
+        font-family: 'VT323', monospace;
+      }
+    </style>
   </head>
   <body class="is-loading">
     <div id="loader" aria-hidden="true">

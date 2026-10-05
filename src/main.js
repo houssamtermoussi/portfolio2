@@ -60,10 +60,6 @@ function renderProjects() {
             <h3 class="project__title">${escapeHtml(p.title)}</h3>
             <p class="project__desc">${escapeHtml(p.desc)}</p>
             <ul class="tags">${p.tags.map((t) => `<li>${escapeHtml(t)}</li>`).join('')}</ul>
-            <div class="project__links">
-              <a href="${escapeHtml(p.demo)}" target="_blank" rel="noopener">DEMO ↗</a>
-              <a href="${escapeHtml(p.repo)}" target="_blank" rel="noopener">CODE ↗</a>
-            </div>
           </div>
         </div>
       </article>`,

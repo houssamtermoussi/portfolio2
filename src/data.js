@@ -61,32 +61,24 @@ export const projects = [
     type: 'Gestion opticien',
     desc: 'Application de gestion pour opticien : clients, ordonnances, stock de montures et verres, ventes et facturation.',
     tags: ['Laravel', 'React', 'MySQL', 'Tailwind'],
-    demo: '#',
-    repo: '#',
   },
   {
     title: 'GoChat',
     type: 'Chat temps réel',
     desc: 'Application de chat en temps réel : salons, messages privés et présence des utilisateurs en direct.',
     tags: ['Go', 'WebSocket'],
-    demo: '#',
-    repo: '#',
   },
   {
     title: 'CineSeat',
     type: 'Réservation cinéma',
     desc: 'Plateforme de réservation de places de cinéma : séances, choix des sièges sur plan de salle et billets.',
     tags: ['Laravel', 'Vue.js', 'PostgreSQL', 'Tailwind'],
-    demo: '#',
-    repo: '#',
   },
   {
     title: 'TimeFlow',
     type: 'App mobile',
     desc: 'Application mobile de gestion du temps et de projets : tâches, suivi du temps passé et planning.',
     tags: ['Flutter'],
-    demo: '#',
-    repo: '#',
   },
 ];
 

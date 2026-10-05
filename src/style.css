@@ -817,20 +817,6 @@ button,
   font-family: var(--font-term);
   font-size: 1.15rem;
 }
-.project__links {
-  display: flex;
-  gap: 1.4rem;
-  padding-top: 1rem;
-  border-top: 3px dotted var(--purple-3);
-  font-family: var(--font-pixel);
-  font-size: 0.55rem;
-}
-.project__links a:hover {
-  background: var(--purple);
-  color: var(--white);
-  box-shadow: 0 0 0 4px var(--purple);
-}
-
 /* ---------- Contact ---------- */
 .contact__grid {
   display: grid;

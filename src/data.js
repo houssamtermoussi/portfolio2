@@ -29,17 +29,20 @@ export const skillGroups = [
       { name: 'Vue.js', icon: 'vuedotjs' },
       { name: 'React', icon: 'react' },
       { name: 'Next.js', icon: 'nextdotjs' },
-      { name: 'Tailwind', icon: 'tailwindcss' },
+      { name: 'Svelte', icon: 'svelte' },
     ],
   },
   {
     title: 'Mobile',
-    items: [{ name: 'Flutter', icon: 'flutter' }],
+    items: [
+      { name: 'Flutter', icon: 'flutter' },
+      { name: 'React Native', icon: 'react' },
+    ],
   },
   {
     title: 'Bases de données',
     items: [
-      { name: 'Supabase', icon: 'supabase' },
+      { name: 'PostgreSQL', icon: 'postgresql' },
       { name: 'MongoDB', icon: 'mongodb' },
       { name: 'MySQL', icon: 'mysql' },
     ],
@@ -60,7 +63,7 @@ export const projects = [
     title: 'Opticia',
     type: 'Gestion opticien',
     desc: 'Application de gestion pour opticien : clients, ordonnances, stock de montures et verres, ventes et facturation.',
-    tags: ['Laravel', 'React', 'MySQL', 'Tailwind'],
+    tags: ['Laravel', 'React', 'MySQL', 'Svelte'],
   },
   {
     title: 'GoChat',
@@ -72,7 +75,7 @@ export const projects = [
     title: 'CineSeat',
     type: 'Réservation cinéma',
     desc: 'Plateforme de réservation de places de cinéma : séances, choix des sièges sur plan de salle et billets.',
-    tags: ['Laravel', 'Vue.js', 'PostgreSQL', 'Tailwind'],
+    tags: ['Laravel', 'Vue.js', 'PostgreSQL', 'Svelte'],
   },
   {
     title: 'TimeFlow',

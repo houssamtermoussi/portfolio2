@@ -108,8 +108,8 @@ function runLoader() {
     'HT-BIOS v2.6  (C) 2026 HOUSSAM TERMOUSSI',
     'MEMORY TEST ................ 640K OK',
     'LOADING BACKEND  : PHP LARAVEL PYTHON GO',
-    'LOADING FRONTEND : VUE REACT NEXT TAILWIND',
-    'MOUNTING /dev/flutter /dev/linux ...... OK',
+    'LOADING FRONTEND : VUE REACT NEXT SVELTE',
+    'MOUNTING /dev/flutter /dev/react-native /dev/linux ...... OK',
     'STARTING 3D ENGINE .......... OK',
     'WELCOME, VISITOR.',
   ];

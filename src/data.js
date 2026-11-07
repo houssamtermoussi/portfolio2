@@ -21,6 +21,7 @@ export const skillGroups = [
       { name: 'Laravel', icon: 'laravel' },
       { name: 'Python', icon: 'python' },
       { name: 'Go', icon: 'go' },
+      { name: 'Rust', icon: 'rust' },
     ],
   },
   {
@@ -53,6 +54,7 @@ export const skillGroups = [
       { name: 'Linux', icon: 'linux' },
       { name: 'Git', icon: 'git' },
       { name: 'GitHub', icon: 'github' },
+      { name: 'Docker', icon: 'docker' },
     ],
   },
 ];
@@ -60,7 +62,7 @@ export const skillGroups = [
 // Projets d'exemple : remplace-les par tes vrais projets
 export const projects = [
   {
-    title: 'Opticia',
+    title: 'Optika soft',
     type: 'Gestion opticien',
     desc: 'Application de gestion pour opticien : clients, ordonnances, stock de montures et verres, ventes et facturation.',
     tags: ['Laravel', 'React', 'MySQL', 'Svelte'],
@@ -72,13 +74,13 @@ export const projects = [
     tags: ['Go', 'WebSocket'],
   },
   {
-    title: 'CineSeat',
+    title: 'H-Cinema',
     type: 'Réservation cinéma',
     desc: 'Plateforme de réservation de places de cinéma : séances, choix des sièges sur plan de salle et billets.',
     tags: ['Laravel', 'Vue.js', 'PostgreSQL', 'Svelte'],
   },
   {
-    title: 'TimeFlow',
+    title: 'TurboPlanner',
     type: 'App mobile',
     desc: 'Application mobile de gestion du temps et de projets : tâches, suivi du temps passé et planning.',
     tags: ['Flutter'],

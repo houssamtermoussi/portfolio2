@@ -1,9 +1,10 @@
 import './style.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { profile, skillGroups, projects, contacts } from './data.js';
+import { skillGroups, projects, contacts } from './data.js';
 import { createHeroScene } from './scenes/hero.js';
 import { createSkillsSphere } from './scenes/skills.js';
+import { detectLang, getT, setStoredLang } from './i18n.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,8 +12,50 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 const allSkills = skillGroups.flatMap((g) => g.items.map((i) => i.name));
 
+let lang = detectLang();
+let t = getT(lang);
+let typingToken = 0;
+
 const escapeHtml = (s) =>
   String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+
+function lookup(path) {
+  return path.split('.').reduce((obj, key) => obj?.[key], t);
+}
+
+function applyStaticTranslations() {
+  document.documentElement.lang = lang;
+  document.title = t.meta.title;
+  const meta = document.querySelector('meta[name="description"]');
+  if (meta) meta.setAttribute('content', t.meta.description);
+
+  document.querySelectorAll('[data-i18n]').forEach((el) => {
+    const value = lookup(el.dataset.i18n);
+    if (typeof value === 'string') el.textContent = value;
+  });
+
+  document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+    const value = lookup(el.dataset.i18nHtml);
+    if (typeof value === 'string') el.innerHTML = value;
+  });
+
+  document.querySelectorAll('[data-i18n-aria]').forEach((el) => {
+    const value = lookup(el.dataset.i18nAria);
+    if (typeof value === 'string') el.setAttribute('aria-label', value);
+  });
+
+  document.querySelectorAll('.lang__btn').forEach((btn) => {
+    const active = btn.dataset.lang === lang;
+    btn.setAttribute('aria-pressed', String(active));
+    btn.classList.toggle('is-active', active);
+  });
+
+  const toggle = document.getElementById('nav-toggle');
+  if (toggle) {
+    const open = document.getElementById('nav-links')?.classList.contains('is-open');
+    toggle.setAttribute('aria-label', open ? t.nav.closeMenu : t.nav.openMenu);
+  }
+}
 
 function renderMarquee() {
   const items = allSkills.map((s) => `<span>${escapeHtml(s.toUpperCase())}</span><span class="star">✦</span>`).join('');
@@ -24,7 +67,7 @@ function renderSkillGroups() {
     .map(
       (group) => `
       <div class="group" data-reveal>
-        <h3 class="group__title">${escapeHtml(group.title)}</h3>
+        <h3 class="group__title">${escapeHtml(t.skills[group.key] || group.key)}</h3>
         <ul class="chips">
           ${group.items
             .map(
@@ -43,8 +86,9 @@ function renderSkillGroups() {
 
 function renderProjects() {
   document.getElementById('projects-grid').innerHTML = projects
-    .map(
-      (p, i) => `
+    .map((p, i) => {
+      const copy = t.projectItems[i] || {};
+      return `
       <article class="project" data-reveal>
         <div class="win project__inner" data-tilt>
           <div class="win__bar">
@@ -54,16 +98,16 @@ function renderProjects() {
           <div class="project__screen">
             <span class="project__sun"></span>
             <span class="project__index">${String(i + 1).padStart(2, '0')}</span>
-            <span class="project__type">${escapeHtml(p.type)}</span>
+            <span class="project__type">${escapeHtml(copy.type || '')}</span>
           </div>
           <div class="win__body">
             <h3 class="project__title">${escapeHtml(p.title)}</h3>
-            <p class="project__desc">${escapeHtml(p.desc)}</p>
-            <ul class="tags">${p.tags.map((t) => `<li>${escapeHtml(t)}</li>`).join('')}</ul>
+            <p class="project__desc">${escapeHtml(copy.desc || '')}</p>
+            <ul class="tags">${p.tags.map((tag) => `<li>${escapeHtml(tag)}</li>`).join('')}</ul>
           </div>
         </div>
-      </article>`,
-    )
+      </article>`;
+    })
     .join('');
 }
 
@@ -82,6 +126,7 @@ function renderContacts() {
 
 function splitChars() {
   document.querySelectorAll('[data-split]').forEach((el) => {
+    if (el.querySelector('.char')) return;
     const text = el.textContent.trim();
     el.setAttribute('aria-label', text);
     el.innerHTML = [...text].map((ch) => `<span class="char" aria-hidden="true">${ch}</span>`).join('');
@@ -166,13 +211,16 @@ function playIntro(hero) {
 }
 
 function setupTyping() {
+  const token = ++typingToken;
   const el = document.getElementById('typed');
-  const words = profile.roles;
+  const words = t.roles;
   let w = 0;
   let c = words[0].length;
   let deleting = false;
+  el.textContent = words[0];
 
   const step = () => {
+    if (token !== typingToken) return;
     const word = words[w];
     if (!deleting && c < word.length) {
       el.textContent = word.slice(0, ++c);
@@ -265,7 +313,7 @@ function setupNav() {
   const setOpen = (open) => {
     links.classList.toggle('is-open', open);
     toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+    toggle.setAttribute('aria-label', open ? t.nav.closeMenu : t.nav.openMenu);
     document.body.style.overflow = open ? 'hidden' : '';
   };
   toggle.addEventListener('click', () => setOpen(!links.classList.contains('is-open')));
@@ -295,6 +343,26 @@ function setupTilt() {
   });
 }
 
+function setLang(next) {
+  if (next === lang || (next !== 'fr' && next !== 'en')) return;
+  lang = next;
+  t = getT(lang);
+  setStoredLang(lang);
+  applyStaticTranslations();
+  renderSkillGroups();
+  renderProjects();
+  setupTyping();
+  setupTilt();
+  ScrollTrigger.refresh();
+}
+
+function setupLangSwitch() {
+  document.querySelectorAll('.lang__btn').forEach((btn) => {
+    btn.addEventListener('click', () => setLang(btn.dataset.lang));
+  });
+}
+
+applyStaticTranslations();
 renderMarquee();
 renderSkillGroups();
 renderProjects();
@@ -306,6 +374,7 @@ const hero = createHeroScene(document.getElementById('hero-canvas'), { reduceMot
 createSkillsSphere(document.getElementById('skills-canvas'), allSkills);
 
 setupNav();
+setupLangSwitch();
 setupTilt();
 setupScrollEffects(hero);
 setupTyping();

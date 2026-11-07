@@ -242,6 +242,41 @@ button,
 .nav__links a.is-active::after {
   transform: scaleX(1);
 }
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 2;
+}
+.lang {
+  display: flex;
+  border: 3px solid var(--purple);
+  box-shadow: 3px 3px 0 var(--purple);
+  background: var(--white);
+}
+.lang__btn {
+  min-width: 40px;
+  padding: 0.45rem 0.55rem;
+  border: 0;
+  background: transparent;
+  color: var(--purple);
+  font-family: var(--font-pixel);
+  font-size: 0.55rem;
+  line-height: 1;
+  cursor: var(--cursor-pointer);
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+.lang__btn + .lang__btn {
+  border-left: 3px solid var(--purple);
+}
+.lang__btn.is-active,
+.lang__btn[aria-pressed='true'] {
+  background: var(--purple);
+  color: var(--white);
+}
 .nav__toggle {
   display: none;
   flex-direction: column;
@@ -917,6 +952,9 @@ button,
   }
   .nav__links a::after {
     background: var(--white);
+  }
+  .lang {
+    box-shadow: 3px 3px 0 var(--purple-3);
   }
   .hero {
     height: auto;

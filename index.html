@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -48,21 +48,27 @@
     <div class="crt" aria-hidden="true"></div>
     <header class="nav" id="nav">
       <div class="container nav__inner">
-        <a href="#home" class="logo" aria-label="Accueil">
+        <a href="#home" class="logo" aria-label="Accueil" data-i18n-aria="nav.home">
           <span class="logo__mark">HT</span>
           <span class="logo__text">HOUSSAM.DEV</span>
         </a>
         <nav aria-label="Navigation principale">
           <ul class="nav__links" id="nav-links">
-            <li><a href="#about" data-link>À propos</a></li>
-            <li><a href="#stack" data-link>Stack</a></li>
-            <li><a href="#projects" data-link>Projets</a></li>
-            <li><a href="#contact" data-link>Contact</a></li>
+            <li><a href="#about" data-link data-i18n="nav.about">À propos</a></li>
+            <li><a href="#stack" data-link data-i18n="nav.stack">Stack</a></li>
+            <li><a href="#projects" data-link data-i18n="nav.projects">Projets</a></li>
+            <li><a href="#contact" data-link data-i18n="nav.contact">Contact</a></li>
           </ul>
         </nav>
-        <button class="nav__toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+        <div class="nav__actions">
+          <div class="lang" role="group" aria-label="Language">
+            <button type="button" class="lang__btn" data-lang="fr" aria-pressed="false">FR</button>
+            <button type="button" class="lang__btn" data-lang="en" aria-pressed="true">EN</button>
+          </div>
+          <button class="nav__toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" data-i18n-aria="nav.openMenu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -70,7 +76,7 @@
       <section id="home" class="hero">
         <canvas id="hero-canvas"></canvas>
         <div class="container hero__content">
-          <p class="hero__tag"><span class="blink">■</span> DISPONIBLE POUR DE NOUVEAUX PROJETS</p>
+          <p class="hero__tag"><span class="blink">■</span> <span data-i18n="hero.tag">DISPONIBLE POUR DE NOUVEAUX PROJETS</span></p>
           <h1 class="hero__title">
             <span class="hero__line" data-split>HOUSSAM</span>
             <span class="hero__line hero__line--outline" data-split>TERMOUSSI</span>
@@ -78,16 +84,16 @@
           <p class="hero__role">
             <span class="hero__prompt">&gt;</span> <span id="typed">software developer</span><span class="caret">_</span>
           </p>
-          <p class="hero__desc">
+          <p class="hero__desc" data-i18n="hero.desc">
             Je conçois et développe des applications web &amp; mobiles robustes, du back-end jusqu’au dernier pixel.
           </p>
           <div class="hero__cta">
-            <a href="#projects" class="btn btn--primary">Voir mes projets</a>
-            <a href="#contact" class="btn">Me contacter</a>
+            <a href="#projects" class="btn btn--primary" data-i18n="hero.ctaProjects">Voir mes projets</a>
+            <a href="#contact" class="btn" data-i18n="hero.ctaContact">Me contacter</a>
           </div>
         </div>
         <div class="hero__hud">
-          <a href="#about" class="hero__scroll"><span class="hero__scroll-box"><i></i></span>SCROLL</a>
+          <a href="#about" class="hero__scroll"><span class="hero__scroll-box"><i></i></span><span data-i18n="hero.scroll">SCROLL</span></a>
           <span class="hero__player">PLAYER 1 — <span class="blink">READY</span></span>
         </div>
       </section>
@@ -98,7 +104,7 @@
 
       <section id="about" class="section">
         <div class="container">
-          <h2 class="section__title"><span class="section__num">01</span>À propos</h2>
+          <h2 class="section__title"><span class="section__num">01</span><span data-i18n="about.title">À propos</span></h2>
           <div class="about">
             <div class="win" data-reveal="pop">
               <div class="win__bar">
@@ -106,17 +112,17 @@
                 <div class="win__btns"><i></i><i></i><i></i></div>
               </div>
               <div class="win__body about__text">
-                <p>
+                <p data-i18n-html="about.p1">
                   Salut ! Moi c’est <strong>Houssam Termoussi</strong>, <mark>software developer</mark> passionné par
                   la construction de produits numériques.
                 </p>
-                <p>
+                <p data-i18n-html="about.p2">
                   Côté back-end je travaille avec <strong>PHP / Laravel</strong>, <strong>Python</strong> et
                   <strong>Go</strong> ; côté front avec <strong>Vue.js</strong>, <strong>React</strong>,
                   <strong>Next.js</strong> et <strong>Svelte</strong>. Je développe aussi des applications mobiles
                   avec <strong>Flutter</strong> et <strong>React Native</strong>.
                 </p>
-                <p>
+                <p data-i18n-html="about.p3">
                   Je vis dans le terminal sous <strong>Linux</strong>, je versionne tout avec
                   <strong>Git</strong>, et je choisis la bonne base de données selon le besoin :
                   <strong>MySQL</strong>, <strong>MongoDB</strong> ou <strong>PostgreSQL</strong>.
@@ -128,11 +134,11 @@
               <div class="stats">
                 <div class="stat" data-reveal>
                   <span class="stat__num" data-count="16" data-plus>0</span>
-                  <span class="stat__label">technologies</span>
+                  <span class="stat__label" data-i18n="about.statTech">technologies</span>
                 </div>
                 <div class="stat" data-reveal>
                   <span class="stat__num" data-count="4" data-plus>0</span>
-                  <span class="stat__label">plateformes : web, mobile, API</span>
+                  <span class="stat__label" data-i18n="about.statPlatforms">plateformes : web, mobile, API</span>
                 </div>
               </div>
               <div class="win win--term" data-reveal="pop">
@@ -144,9 +150,9 @@
                   <p><span class="term__ps">houssam@dev:~$</span> whoami</p>
                   <p class="term__out">houssam termoussi</p>
                   <p><span class="term__ps">houssam@dev:~$</span> cat role.txt</p>
-                  <p class="term__out">software developer — full-stack &amp; mobile</p>
+                  <p class="term__out" data-i18n="about.termRole">software developer — full-stack &amp; mobile</p>
                   <p><span class="term__ps">houssam@dev:~$</span> uptime</p>
-                  <p class="term__out">toujours en train d’apprendre</p>
+                  <p class="term__out" data-i18n="about.termUptime">toujours en train d’apprendre</p>
                   <p><span class="term__ps">houssam@dev:~$</span> <span class="caret">█</span></p>
                 </div>
               </div>
@@ -157,7 +163,7 @@
 
       <section id="stack" class="section section--tint">
         <div class="container">
-          <h2 class="section__title"><span class="section__num">02</span>Stack</h2>
+          <h2 class="section__title"><span class="section__num">02</span><span data-i18n="stack.title">Stack</span></h2>
           <div class="stack">
             <div class="win stack__sphere" data-reveal="pop">
               <div class="win__bar">
@@ -166,7 +172,7 @@
               </div>
               <div class="sphere">
                 <canvas id="skills-canvas"></canvas>
-                <span class="sphere__hint">↻ GLISSE POUR TOURNER</span>
+                <span class="sphere__hint" data-i18n="stack.hint">↻ GLISSE POUR TOURNER</span>
               </div>
             </div>
             <div class="stack__groups" id="stack-groups"></div>
@@ -176,16 +182,16 @@
 
       <section id="projects" class="section">
         <div class="container">
-          <h2 class="section__title"><span class="section__num">03</span>Projets</h2>
+          <h2 class="section__title"><span class="section__num">03</span><span data-i18n="projects.title">Projets</span></h2>
           <div class="projects" id="projects-grid"></div>
         </div>
       </section>
 
       <section id="contact" class="section section--tint">
         <div class="container contact">
-          <h2 class="section__title"><span class="section__num">04</span>Contact</h2>
+          <h2 class="section__title"><span class="section__num">04</span><span data-i18n="contact.title">Contact</span></h2>
           <div class="contact__grid">
-            <p class="contact__big" data-reveal>
+            <p class="contact__big" data-reveal data-i18n-html="contact.big">
               UN PROJET ?<br />
               <span>PARLONS-EN.</span>
             </p>
@@ -208,8 +214,8 @@
     <footer class="footer">
       <div class="container footer__inner">
         <span>© <span id="year"></span> HOUSSAM TERMOUSSI</span>
-        <span class="blink">INSERT COIN TO CONTINUE</span>
-        <a href="#home">▲ HAUT</a>
+        <span class="blink" data-i18n="footer.coin">INSERT COIN TO CONTINUE</span>
+        <a href="#home" data-i18n="footer.top">▲ HAUT</a>
       </div>
     </footer>
 

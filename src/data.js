@@ -38,6 +38,7 @@ export const skillGroups = [
       { name: 'PostgreSQL', icon: 'postgresql' },
       { name: 'MongoDB', icon: 'mongodb' },
       { name: 'MySQL', icon: 'mysql' },
+      { name: 'SQLite', icon: 'sqlite' },
     ],
   },
   {

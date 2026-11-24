@@ -73,7 +73,7 @@ function renderSkillGroups() {
             .map(
               (item) => `
             <li class="chip">
-              <img src="https://cdn.simpleicons.org/${item.icon}/531069" alt="" width="18" height="18" loading="lazy" />
+              <img src="https://cdn.simpleicons.org/${item.icon}/0b3a8c" alt="" width="18" height="18" loading="lazy" />
               ${escapeHtml(item.name)}
             </li>`,
             )

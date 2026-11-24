@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 
-const PURPLE = new THREE.Color('#531069');
-const PURPLE_LIGHT = new THREE.Color('#b98ccc');
-const SUN_BOTTOM = new THREE.Color('#c27bdc');
+const BLUE = new THREE.Color('#0b3a8c');
+const BLUE_LIGHT = new THREE.Color('#8fb4d8');
+const SUN_BOTTOM = new THREE.Color('#6eace8');
 const WHITE = new THREE.Color('#ffffff');
 
 const noiseGLSL = /* glsl */ `
@@ -91,7 +91,7 @@ export function createHeroScene(canvas, { reduceMotion = false } = {}) {
   const camera = new THREE.PerspectiveCamera(60, 1, 0.1, 200);
   camera.position.set(0, 2.2, 9);
 
-  scene.add(new THREE.HemisphereLight(WHITE, PURPLE, 2.2));
+  scene.add(new THREE.HemisphereLight(WHITE, BLUE, 2.2));
   const dir = new THREE.DirectionalLight(WHITE, 1.6);
   dir.position.set(-4, 6, 5);
   scene.add(dir);
@@ -105,7 +105,7 @@ export function createHeroScene(canvas, { reduceMotion = false } = {}) {
     new THREE.ShaderMaterial({
       uniforms: {
         uTime: time,
-        uColor: { value: PURPLE },
+        uColor: { value: BLUE },
         uBg: { value: WHITE },
         uFogNear: { value: 12 },
         uFogFar: { value: 50 },
@@ -120,7 +120,7 @@ export function createHeroScene(canvas, { reduceMotion = false } = {}) {
   const sun = new THREE.Mesh(
     new THREE.PlaneGeometry(28, 28),
     new THREE.ShaderMaterial({
-      uniforms: { uTime: time, uTop: { value: PURPLE }, uBottom: { value: SUN_BOTTOM } },
+      uniforms: { uTime: time, uTop: { value: BLUE }, uBottom: { value: SUN_BOTTOM } },
       vertexShader: sunVertex,
       fragmentShader: sunFragment,
       transparent: true,
@@ -145,18 +145,18 @@ export function createHeroScene(canvas, { reduceMotion = false } = {}) {
       polygonOffsetUnits: 1,
     }),
   );
-  core.add(new THREE.LineSegments(new THREE.EdgesGeometry(icoGeo), new THREE.LineBasicMaterial({ color: PURPLE })));
+  core.add(new THREE.LineSegments(new THREE.EdgesGeometry(icoGeo), new THREE.LineBasicMaterial({ color: BLUE })));
   hero.add(core);
 
   const shell = new THREE.Mesh(
     new THREE.IcosahedronGeometry(2.1, 1),
-    new THREE.MeshBasicMaterial({ color: PURPLE, wireframe: true, transparent: true, opacity: 0.22 }),
+    new THREE.MeshBasicMaterial({ color: BLUE, wireframe: true, transparent: true, opacity: 0.22 }),
   );
   hero.add(shell);
 
   const ring = new THREE.Mesh(
     new THREE.TorusGeometry(2.75, 0.05, 6, 96),
-    new THREE.MeshBasicMaterial({ color: PURPLE }),
+    new THREE.MeshBasicMaterial({ color: BLUE }),
   );
   ring.rotation.set(Math.PI / 2.4, 0.3, 0);
   hero.add(ring);
@@ -164,8 +164,8 @@ export function createHeroScene(canvas, { reduceMotion = false } = {}) {
   const cubeGeo = new THREE.BoxGeometry(0.24, 0.24, 0.24);
   const cubeEdges = new THREE.EdgesGeometry(cubeGeo);
   const cubes = [0, 1, 2, 3].map((i) => {
-    const cube = new THREE.Mesh(cubeGeo, new THREE.MeshBasicMaterial({ color: i % 2 ? WHITE : PURPLE }));
-    cube.add(new THREE.LineSegments(cubeEdges, new THREE.LineBasicMaterial({ color: PURPLE })));
+    const cube = new THREE.Mesh(cubeGeo, new THREE.MeshBasicMaterial({ color: i % 2 ? WHITE : BLUE }));
+    cube.add(new THREE.LineSegments(cubeEdges, new THREE.LineBasicMaterial({ color: BLUE })));
     cube.userData = { angle: (i / 4) * Math.PI * 2, speed: 0.6 + i * 0.12, radius: 2.75 };
     ring.add(cube);
     return cube;
@@ -182,7 +182,7 @@ export function createHeroScene(canvas, { reduceMotion = false } = {}) {
   particlesGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
   const particles = new THREE.Points(
     particlesGeo,
-    new THREE.PointsMaterial({ color: PURPLE_LIGHT, size: 0.14, sizeAttenuation: true }),
+    new THREE.PointsMaterial({ color: BLUE_LIGHT, size: 0.14, sizeAttenuation: true }),
   );
   scene.add(particles);
 

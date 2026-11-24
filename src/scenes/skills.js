@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
-const PURPLE = '#531069';
-const PURPLE_LIGHT = '#b98ccc';
+const BLUE = '#0b3a8c';
+const BLUE_LIGHT = '#8fb4d8';
 const WHITE = '#ffffff';
 const RADIUS = 2.7;
 const LABEL_SCALE = 0.0062;
@@ -20,17 +20,17 @@ function makeLabelTexture(text, inverted) {
   c.width = w + shadow;
   c.height = h + shadow;
 
-  ctx.fillStyle = inverted ? PURPLE_LIGHT : PURPLE;
+  ctx.fillStyle = inverted ? BLUE_LIGHT : BLUE;
   ctx.fillRect(shadow, shadow, w, h);
-  ctx.fillStyle = inverted ? PURPLE : WHITE;
+  ctx.fillStyle = inverted ? BLUE : WHITE;
   ctx.fillRect(0, 0, w, h);
   ctx.lineWidth = 5;
-  ctx.strokeStyle = PURPLE;
+  ctx.strokeStyle = BLUE;
   ctx.strokeRect(2.5, 2.5, w - 5, h - 5);
 
   ctx.font = font;
   ctx.textBaseline = 'middle';
-  ctx.fillStyle = inverted ? WHITE : PURPLE;
+  ctx.fillStyle = inverted ? WHITE : BLUE;
   ctx.fillText(text, pad, h / 2 + 3);
 
   const texture = new THREE.CanvasTexture(c);
@@ -56,13 +56,13 @@ export async function createSkillsSphere(canvas, skills) {
   group.add(
     new THREE.Mesh(
       new THREE.IcosahedronGeometry(RADIUS * 0.72, 2),
-      new THREE.MeshBasicMaterial({ color: PURPLE, wireframe: true, transparent: true, opacity: 0.16 }),
+      new THREE.MeshBasicMaterial({ color: BLUE, wireframe: true, transparent: true, opacity: 0.16 }),
     ),
   );
   for (let i = 0; i < 3; i++) {
     const ring = new THREE.Mesh(
       new THREE.TorusGeometry(RADIUS * 0.95, 0.012, 4, 120),
-      new THREE.MeshBasicMaterial({ color: PURPLE, transparent: true, opacity: 0.35 }),
+      new THREE.MeshBasicMaterial({ color: BLUE, transparent: true, opacity: 0.35 }),
     );
     ring.rotation.set((i * Math.PI) / 3, (i * Math.PI) / 5, 0);
     group.add(ring);
